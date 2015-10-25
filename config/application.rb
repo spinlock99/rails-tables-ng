@@ -17,6 +17,12 @@ Bundler.require(*Rails.groups)
 
 module Traction
   class Application < Rails::Application
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options]
+      end
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -31,5 +37,16 @@ module Traction
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # @todo: move app/controllers/api/ to app/api/ and configure autoloader
+    #        to recognize the app/api/ directory.
+    #
+    # Autoload app/api/
+    #
+    # api/ directory is not being autoloaded for some reason. Moving directory
+    # to controllers/api/ to let standard rails autoloaders handle it.
+    #
+#    config.paths.add 'app/api', glob: '**/*.rb'
+#    config.autoload_paths += Dir["#{Rails.root}/app/api/*"]
   end
 end
