@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   mount API::Base, at: '/'
   mount GrapeSwaggerRails::Engine, at: '/documentation'
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end

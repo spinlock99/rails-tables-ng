@@ -18,6 +18,7 @@ gem 'grape-active_model_serializers'
 gem 'grape-swagger-rails'
 gem 'smarter_csv'
 gem 'sidekiq'
+gem 'sinatra', require: nil
 
 group :development, :test do
   gem 'byebug'
