@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151025030421) do
+ActiveRecord::Schema.define(version: 20151026000659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20151025030421) do
     t.integer  "alexa_global_rank"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.binary   "screen_shot"
+    t.binary   "thumb_nail"
   end
 
 end
