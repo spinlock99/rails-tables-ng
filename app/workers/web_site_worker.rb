@@ -20,4 +20,8 @@ class WebSiteWorker
       raise "failed to capture #{url}.\nerror: #{error}."
     end
   end
+
+  sidekiq_retries_exhausted do |error|
+    # send email to admin, etc... to alert that job is dead.
+  end
 end
