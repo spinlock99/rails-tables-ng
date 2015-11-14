@@ -14,3 +14,5 @@
 
 # stupid mac stuff
 .DS_Store
+.rvmrc
+*.swp
